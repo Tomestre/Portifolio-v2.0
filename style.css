@@ -1,0 +1,118 @@
+html, body{
+    align-items: center;
+    justify-content: center;
+    display: grid;
+    align-content: center;
+    background-color: #111224;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.box-center{  
+  align-self: center;
+  justify-self: center;
+}
+
+.svg-frame {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .svg-frame svg {
+    position: absolute;
+    transition: .5s;
+    z-index: calc(1 - (0.2 * var(--j)));
+    transform-origin: center;
+    width: 344px;
+    height: 344px;
+    fill: none;
+  }
+  
+  
+  
+  .svg-frame svg #center {
+    transition: .5s;
+    transform-origin: center;
+  }
+  
+ 
+  #out2 {
+    animation: rotate16 7s ease-in-out infinite alternate;
+    transform-origin: center;
+  }
+  
+  #out3 {
+    animation: rotate16 3s ease-in-out infinite alternate;
+    transform-origin: center;
+    stroke: #ff0;
+  }
+  
+  #inner3,
+  #inner1 {
+    animation: rotate16 4s ease-in-out infinite alternate;
+    transform-origin: center;
+  }
+  
+  #center1 {
+    fill: #ff0;
+    transform-origin: center;
+    
+  }
+  
+
+  @keyframes rotate16 {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  #svg-container {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    
+  }
+
+  body > div.box-center > div > svg.elemento-svg{
+    overflow: hidden;
+
+  }
+  #svg-element {
+    position: absolute;
+    top: 0;
+    left: 0;
+    
+  }
+
+  .label{
+    display: flex;
+    position: absolute;
+    cursor: pointer;
+  }
+
+.box-talk{
+  margin-top: -50px;
+  display: flex;
+  position: absolute;
+  top: 50%;
+  justify-self: center;
+  padding-top: 0;
+}
+
+.svgBoxTalk{
+  width: 350px;
+}
+.box-talk h2{
+  font-size: 16px;
+  left: 17px;
+  color: #BFFFFF;
+  position: absolute;
+  align-self: center;
+  justify-self: center;
+}
