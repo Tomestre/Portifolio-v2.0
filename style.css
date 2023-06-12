@@ -7,6 +7,7 @@ html, body{
     margin: 0;
     padding: 0;
     width: 100%;
+    min-width: 390px;
 }
 .box-center{  
   align-self: center;
@@ -106,7 +107,7 @@ html, body{
 }
 
 .svgBoxTalk{
-  width: 350px;
+  width: 370px;
 }
 .box-talk h2{
   font-size: 16px;
@@ -115,4 +116,87 @@ html, body{
   position: absolute;
   align-self: center;
   justify-self: center;
+}
+
+.setaTalk{
+  position: absolute;
+  left: 85%;
+  top: 85%;
+  cursor: pointer;
+}
+
+#my-path , #seta1 , #seta2{
+  stroke-width: 2px; /* Define a largura da borda */
+  animation: change-stroke-color 4s infinite alternate;
+}
+
+@keyframes change-stroke-color {
+  0% {
+    stroke: #019292; /* Cor inicial da borda */
+  }
+  50% {
+    stroke: #04DDDD /* Cor intermediária da borda */
+  }
+  100% {
+    stroke: #019292; /* Cor final da borda */
+  }
+}
+
+.text2{
+  display: none;
+}
+
+.box-display{
+  position: absolute;
+  display: flex;
+  top: 7px;
+  justify-self: center;
+  padding-top: 0;
+}
+
+#display{
+  display: none;
+  stroke: azure;
+  width: 367px;
+  height: 268px;
+  backdrop-filter: blur(10px);
+}
+
+.box-menu{
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 87%;
+  justify-self: center;
+}
+
+.box-menu #svg5{
+  margin-left: 20px;
+}
+
+.light-menu{
+  animation: change-stroke-menu-color 4s infinite alternate;
+}
+
+@keyframes change-stroke-menu-color {
+  0% {
+    stroke: #998b9c; /* Cor inicial da borda */
+  }
+  50% {
+    stroke: #ffffff /* Cor intermediária da borda */
+  }
+  100% {
+    stroke: #998b9c; /* Cor final da borda */
+  }
+}
+
+.menu-hover-active{
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(298.81608px) scaleY(-1) ;
+}
+
+.box-menu svg:active{
+  transform: scale(1.1);
 }

@@ -1,4 +1,3 @@
-// Selecione o elemento SVG que você deseja girar
 const svgElement = document.querySelector('.elemento-svg');
 
 // Função para calcular a direção do mouse
@@ -48,7 +47,7 @@ const out1e = document.querySelector('#out1e')
 
   function handleClick(){
     const out1 = document.querySelector('#out1e')
-  console.log(out1)
+  console.log(display);
   }
 
   function posicionarDivEmCimaDoSvg() {
@@ -64,6 +63,56 @@ const out1e = document.querySelector('#out1e')
     label.style.top = `${svgY}px`;
 
   }
-
+posicionarDivEmCimaDoSvg()
   
  window.addEventListener('resize', posicionarDivEmCimaDoSvg)
+
+
+
+//animar letras
+function nextText(){
+  const text1 = document.querySelector('.typing-animation')
+  const text2 = document.querySelector('.text2')
+  const setas = document.querySelector('.setaTalk')
+
+ if(text1.style.display === "none" &
+ text2.style.display === "none"){
+
+  return
+ } else if (text2.style.display === "block") {
+    text1.style.display = "none";
+    text2.style.display = "none";
+    setas.setAttribute('display','none')
+  } else {
+    text2.style.display = "block";
+    text1.style.display = "none";
+  }
+
+}
+
+window.addEventListener("keypress", function(event){
+  // If the user presses the "Enter" key on the keyboard
+  if (event.key === "Enter" || "backspace") {
+    // Cancel the default action, if needed
+    event.preventDefault();
+    nextText()}
+})
+
+
+//animation-menu
+const hoverMenu = document.querySelectorAll('.box-menu svg')
+const menuHover = document.querySelectorAll('.menu-hover')
+const display = document.querySelector('#display')
+
+hoverMenu.forEach((menu,i)=>{
+menu.addEventListener('click', ()=>{
+display.style.display = 'block';
+})
+
+menu.addEventListener('mouseover', () => {
+  menuHover[i].classList.add('menu-hover-active')
+})
+menu.addEventListener('mouseout', () => {
+  menuHover[i].classList.remove('menu-hover-active')
+})
+})
