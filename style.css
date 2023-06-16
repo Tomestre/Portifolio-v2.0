@@ -154,6 +154,8 @@ html, body{
   padding-top: 0;
 }
 
+
+
 #display{
   display: none;
   stroke: azure;
@@ -162,7 +164,11 @@ html, body{
   backdrop-filter: blur(10px);
 }
 
+.display-active {
+  display: block !important;
+}
 .box-menu{
+  
   position: absolute;
   display: flex;
   align-items: center;
@@ -172,6 +178,7 @@ html, body{
 
 .box-menu #svg5{
   margin-left: 20px;
+  cursor: pointer;
 }
 
 .light-menu{
@@ -199,4 +206,16 @@ html, body{
 
 .box-menu svg:active{
   transform: scale(1.1);
+}
+
+.project-box{
+  top: 30px;
+  left: 18px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+
+.desactive{
+  display: none !important; 
 }

@@ -102,11 +102,11 @@ window.addEventListener("keypress", function(event){
 //animation-menu
 const hoverMenu = document.querySelectorAll('.box-menu svg')
 const menuHover = document.querySelectorAll('.menu-hover')
-const display = document.querySelector('#display')
+const display = document.getElementById('display')
 
 hoverMenu.forEach((menu,i)=>{
 menu.addEventListener('click', ()=>{
-display.style.display = 'block';
+display.classList.toggle('display-active')
 })
 
 menu.addEventListener('mouseover', () => {
