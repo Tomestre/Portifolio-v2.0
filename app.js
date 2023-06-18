@@ -103,10 +103,21 @@ window.addEventListener("keypress", function(event){
 const hoverMenu = document.querySelectorAll('.box-menu svg')
 const menuHover = document.querySelectorAll('.menu-hover')
 const display = document.getElementById('display')
+const containerProjects = document.querySelector('.project-box');
 
 hoverMenu.forEach((menu,i)=>{
-menu.addEventListener('click', ()=>{
-display.classList.toggle('display-active')
+menu.addEventListener('click', (e)=>{
+display.classList.toggle('display-active');
+
+console.log(e.target)
+
+if(e.target===menuHover[3]){
+  containerProjects.classList.remove('desactive')
+}
+if(!e.target===menuHover[3]){
+  containerProjects.classList.add('desactive')
+}
+
 })
 
 menu.addEventListener('mouseover', () => {
@@ -116,3 +127,104 @@ menu.addEventListener('mouseout', () => {
   menuHover[i].classList.remove('menu-hover-active')
 })
 })
+
+const projectsMenu = document.querySelector('.menu-projects');
+
+
+
+//projects
+
+let projects = [{
+  name: "Projeto 1",
+  descrição: "loren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsun",
+
+},
+{
+  name: "Projeto 2",
+  descrição: "loren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsun",
+
+},
+{
+  name: "Projeto 3",
+  descrição: "loren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsun",
+
+},
+{
+  name: "Projeto 4",
+  descrição: "loren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsun",
+
+},
+]
+
+function criarSVGsComTextoDinamico(objetos) {
+  const svgs = [];
+
+  objetos.forEach((objeto) => {
+    // Cria o elemento SVG
+    const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+    svg.setAttribute("width", "169.05351");
+    svg.setAttribute("height", "26");
+    svg.setAttribute("viewBox", "0 0 169.05351 26");
+    svg.setAttribute("fill", "none");
+    svg.setAttribute("version", "1.1");
+    svg.setAttribute("id", "svg25");
+    svg.setAttribute("xmlns", "http://www.w3.org/2000/svg");
+    svg.setAttribute("xmlns:svg", "http://www.w3.org/2000/svg");
+
+    // Cria o elemento de caminho (path) dentro do SVG
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    path.setAttribute("d", "m 158.696,25.5 5.017,-9.5 v 9.5 z");
+    path.setAttribute("fill", "#00ffff");
+    path.setAttribute("stroke", "#038383");
+    path.setAttribute("id", "path2");
+
+    // Cria o elemento de grupo (g) dentro do SVG
+    const group = document.createElementNS("http://www.w3.org/2000/svg", "g");
+    group.setAttribute("filter", "url(#filter0_d_6_303)");
+    group.setAttribute("id", "g6");
+    group.setAttribute("transform", "translate(-30.5,-26.5)");
+
+    // Cria o elemento de caminho (path) dentro do grupo
+    const pathGroup = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    pathGroup.setAttribute("d", "M 32,28 H 197 L 184.736,50 H 32 Z");
+    pathGroup.setAttribute("stroke", "#038383");
+    pathGroup.setAttribute("stroke-width", "3");
+    pathGroup.setAttribute("id", "path4");
+
+    // Cria o elemento de texto (text) dentro do SVG
+    const text = document.createElementNS("http://www.w3.org/2000/svg", "text");
+    text.setAttribute("x", "50%");
+    text.setAttribute("y", "70%");
+    text.setAttribute("text-anchor", "middle");
+    text.setAttribute("font-size", "20px");
+    text.setAttribute("fill", "#BFFFFF");
+    text.setAttribute("id", "meuTexto");
+    text.textContent = objeto.name;
+
+    // Adiciona os elementos criados ao SVG
+    group.appendChild(pathGroup);
+    svg.appendChild(path);
+    svg.appendChild(group);
+    svg.appendChild(text);
+
+    // Adiciona o SVG à lista de SVGs
+    svgs.push(svg);
+  });
+
+  // Retorna a lista de SVGs criados
+  return svgs;
+}
+  
+  const projectsBox = criarSVGsComTextoDinamico(projects);
+
+// Limpa o conteúdo da div
+containerProjects.innerHTML = "";
+
+// Insere os SVGs na div
+projectsBox.forEach((svg) => {
+  const svgContainer = document.createElement("div");
+  svgContainer.appendChild(svg);
+  containerProjects.appendChild(svgContainer);
+  });
+
+
