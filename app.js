@@ -101,7 +101,7 @@ window.addEventListener("keypress", function(event){
 
 //animation-menu
 const hoverMenu = document.querySelectorAll('.box-menu svg')
-const menuHover = document.querySelectorAll('.menu-hover')
+const menuSVG = document.querySelectorAll('.menu-hover')
 const display = document.getElementById('display')
 const containerProjects = document.querySelector('.project-box');
 
@@ -109,22 +109,20 @@ hoverMenu.forEach((menu,i)=>{
 menu.addEventListener('click', (e)=>{
 display.classList.toggle('display-active');
 
-console.log(e.target)
-
-if(e.target===menuHover[3]){
-  containerProjects.classList.remove('desactive')
+if(menuSVG[i]===menuSVG[3]){
+containerProjects.classList.remove('desactive')
 }
-if(!e.target===menuHover[3]){
+if(!display.classList.contains('display-active')){
   containerProjects.classList.add('desactive')
 }
 
 })
 
 menu.addEventListener('mouseover', () => {
-  menuHover[i].classList.add('menu-hover-active')
+  menuSVG[i].classList.add('menu-hover-active')
 })
 menu.addEventListener('mouseout', () => {
-  menuHover[i].classList.remove('menu-hover-active')
+  menuSVG[i].classList.remove('menu-hover-active')
 })
 })
 
