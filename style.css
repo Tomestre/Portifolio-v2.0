@@ -219,3 +219,31 @@ html, body{
 .desactive{
   display: none !important; 
 }
+
+.project-box svg:hover{
+  background-color: rgba(224, 59, 59, 0.374);
+}
+
+.perfil-box{
+  top: 30px;
+  left: 18px;
+  position: absolute;
+
+}
+
+.img-perfil{
+  top: 10px;
+  left: 15px;
+  position: absolute;
+  max-width: 153px;
+  max-height: 181px;
+}
+
+.contact-box{
+  top: 50px;
+  left: 18px;
+  position: absolute;
+}
+.contact{
+  width: 108px;
+}
