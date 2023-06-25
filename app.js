@@ -104,21 +104,31 @@ const hoverMenu = document.querySelectorAll('.box-menu svg')
 const menuSVG = document.querySelectorAll('.menu-hover')
 const display = document.getElementById('display')
 const containerProjects = document.querySelector('.project-box');
-const containerPerfil = document.querySelector('.perfil-box')
+const containerPerfil = document.querySelector('.perfil-box');
+const containerContact = document.querySelector('.contact-box')
+const containerTools =  document.querySelector('.tools-box')
 
 hoverMenu.forEach((menu,i)=>{
 menu.addEventListener('click', (e)=>{
 display.classList.toggle('display-active');
 
+if(menuSVG[i]===menuSVG[3]){
+  containerTools.classList.remove('desactive')
+  }
 if(menuSVG[i]===menuSVG[2]){
 containerProjects.classList.remove('desactive')
 }
 if(menuSVG[i]===menuSVG[1]){
   containerPerfil.classList.remove('desactive')
 }
+if(menuSVG[i]===menuSVG[0]){
+  containerContact.classList.remove('desactive')
+  }
 if(!display.classList.contains('display-active')){
   containerProjects.classList.add('desactive')
   containerPerfil.classList.add('desactive')
+  containerContact.classList.add('desactive')
+  containerTools.classList.add('desactive')
 }
 
 })

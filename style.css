@@ -125,7 +125,7 @@ html, body{
   cursor: pointer;
 }
 
-#my-path , #seta1 , #seta2{
+#my-path , #seta1 , #seta2, .contact-border{
   stroke-width: 2px; /* Define a largura da borda */
   animation: change-stroke-color 4s infinite alternate;
 }
@@ -184,6 +184,8 @@ html, body{
 .light-menu{
   animation: change-stroke-menu-color 4s infinite alternate;
 }
+
+
 
 @keyframes change-stroke-menu-color {
   0% {
@@ -246,4 +248,23 @@ html, body{
 }
 .contact{
   width: 108px;
+}
+
+.pointer{
+  cursor: pointer;
+}
+
+.tools-box{
+  top: 20px;
+  left: 71px;
+  position: absolute;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: center;
+  gap: 10px;
+}
+
+.tools-box svg{
+  
+ width: 50px;
 }
