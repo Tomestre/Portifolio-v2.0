@@ -241,3 +241,14 @@ projectsBox.forEach((svg) => {
   });
 
 
+//links-svg-contact
+function goTo (name){
+  
+  console.log(name)
+  if(name ==='whatsapp'){
+  window.location.href = "https://wa.me/5561993717359";}
+  if(name ==='linkedin'){
+    window.location.href = "https://www.linkedin.com/in/tomestre/";}
+  if(name ==='gitHub'){
+      window.location.href = "https://github.com/Tomestre";}
+}
