@@ -231,7 +231,7 @@ function  criarSVGsComTextoDinamico(objetos) {
     text.setAttribute("x", "50%");
     text.setAttribute("y", "70%");
     text.setAttribute("text-anchor", "middle");
-    text.setAttribute("font-size", "20px");
+    text.setAttribute("font-size", "12px");
     text.setAttribute("fill", "#BFFFFF");
     text.setAttribute("id", "meuTexto");
     text.textContent = objeto.name;

@@ -9,9 +9,14 @@ html, body{
     width: 100%;
     min-width: 390px;
 }
+body{
+  min-height: 299px;
+}
 .box-center{  
   align-self: center;
   justify-self: center;
+  position: absolute;
+  top: -7px;
 }
 
 .svg-frame {
@@ -101,7 +106,7 @@ html, body{
   margin-top: -50px;
   display: flex;
   position: absolute;
-  top: 50%;
+  top: 330px;
   justify-self: center;
   padding-top: 0;
 }
@@ -168,11 +173,10 @@ html, body{
   display: block !important;
 }
 .box-menu{
-  
   position: absolute;
   display: flex;
   align-items: center;
-  top: 87%;
+  top: 595px;
   justify-self: center;
 }
 
