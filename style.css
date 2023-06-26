@@ -216,6 +216,11 @@ html, body{
   position: absolute;
   display: flex;
   flex-direction: column;
+  height: 209px;
+  overflow: auto;
+}
+.project-box::-webkit-scrollbar {
+  width: 5px; /* Largura do scroll */
 }
 
 .desactive{

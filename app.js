@@ -147,29 +147,51 @@ const projectsMenu = document.querySelector('.menu-projects');
 
 //projects
 
-let projects = [{
-  name: "Projeto 1",
-  descrição: "loren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsun",
+let projects = []
 
-},
-{
-  name: "Projeto 2",
-  descrição: "loren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsun",
+//API projects
+function getApiGitHub() {
+  fetch('https://api.github.com/users/Tomestre/repos')
+    .then(async res => {
 
-},
-{
-  name: "Projeto 3",
-  descrição: "loren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsun",
+      if(!res.ok) {
+        throw new Error(res.status)
+      }
 
-},
-{
-  name: "Projeto 4",
-  descrição: "loren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsunloren ipsum lorem ipsun",
+      var data = await res.json()
 
-},
-]
+     
 
-function criarSVGsComTextoDinamico(objetos) {
+      data.map(item => {
+        let project = {
+          name:item.name,
+          descrição:item.fullname,
+        }
+  
+
+        projects.push(project)
+
+
+      })
+      
+
+      const projectsBox = criarSVGsComTextoDinamico(projects);
+
+// Limpa o conteúdo da div
+containerProjects.innerHTML = "";
+
+// Insere os SVGs na div
+projectsBox.forEach((svg) => {
+  const svgContainer = document.createElement("div");
+  svgContainer.appendChild(svg);
+  containerProjects.appendChild(svgContainer);
+  });
+
+    }).catch(e => console.log(e))
+}
+getApiGitHub()
+
+function  criarSVGsComTextoDinamico(objetos) {
   const svgs = [];
 
   objetos.forEach((objeto) => {
@@ -227,28 +249,13 @@ function criarSVGsComTextoDinamico(objetos) {
   // Retorna a lista de SVGs criados
   return svgs;
 }
-  
-  const projectsBox = criarSVGsComTextoDinamico(projects);
-
-// Limpa o conteúdo da div
-containerProjects.innerHTML = "";
-
-// Insere os SVGs na div
-projectsBox.forEach((svg) => {
-  const svgContainer = document.createElement("div");
-  svgContainer.appendChild(svg);
-  containerProjects.appendChild(svgContainer);
-  });
-
 
 //links-svg-contact
 function goTo (name){
-  
-  console.log(name)
   if(name ==='whatsapp'){
-  window.location.href = "https://wa.me/5561993717359";}
+    window.open('https://wa.me/5561993717359', '_blank')}
   if(name ==='linkedin'){
-    window.location.href = "https://www.linkedin.com/in/tomestre/";}
+    window.open("https://www.linkedin.com/in/tomestre/", '_blank')}
   if(name ==='gitHub'){
-      window.location.href = "https://github.com/Tomestre";}
+    window.open("https://github.com/Tomestre", '_blank')}
 }
