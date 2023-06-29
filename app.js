@@ -259,3 +259,17 @@ function goTo (name){
   if(name ==='gitHub'){
     window.open("https://github.com/Tomestre", '_blank')}
 }
+
+//animated perfil
+const videoPerfil = document.querySelector('.video-perfil');
+
+videoPerfil.addEventListener('mouseover', ()=>{
+
+  const imgPerfil = document.querySelector('.img-perfil');
+  imgPerfil.style.opacity = 1
+})
+videoPerfil.addEventListener('mouseout', ()=>{
+
+  const imgPerfil = document.querySelector('.img-perfil');
+  imgPerfil.style.opacity = 0
+})

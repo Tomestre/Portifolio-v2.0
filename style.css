@@ -214,6 +214,20 @@ body{
   transform: scale(1.1);
 }
 
+
+.project-box::-webkit-scrollbar {
+  width: 2px; /* Largura da barra de rolagem */
+}
+
+.project-box::-webkit-scrollbar-thumb {
+  background-color:#04DDDD ; /* Cor do botão de rolagem */
+  border-radius: 4px; /* Raio do botão de rolagem */
+}
+
+.project-box::-webkit-scrollbar-track {
+  background-color: #998b9c#04DDDD; /* Cor do fundo da barra de rolagem */
+}
+
 .project-box{
   top: 30px;
   left: 18px;
@@ -222,9 +236,6 @@ body{
   flex-direction: column;
   height: 209px;
   overflow: auto;
-}
-.project-box::-webkit-scrollbar {
-  width: 5px; /* Largura do scroll */
 }
 
 .desactive{
@@ -243,11 +254,51 @@ body{
 }
 
 .img-perfil{
+  opacity: 0;
   top: 10px;
-  left: 15px;
+  left: 5px;
   position: absolute;
   max-width: 153px;
   max-height: 181px;
+}
+
+
+
+.video-perfil{
+  top: 10px;
+  left: 22px;
+  position: absolute;
+  max-width: 153px;
+  max-height: 181px;
+}
+
+.video-perfil:hover{
+  opacity: 0;
+}
+
+.perfil-box h2::-webkit-scrollbar {
+  width: 2px; /* Largura da barra de rolagem */
+}
+
+.perfil-box h2::-webkit-scrollbar-thumb {
+  background-color:#04DDDD ; /* Cor do botão de rolagem */
+  border-radius: 4px; /* Raio do botão de rolagem */
+}
+
+.perfil-box h2::-webkit-scrollbar-track {
+  background-color: #998b9c#04DDDD; /* Cor do fundo da barra de rolagem */
+}
+.perfil-box h2{
+  font-size: 16px;
+  left: 175px;
+  top: -16px;
+  color: #BFFFFF;
+  position: absolute;
+  align-self: center;
+  justify-self: center;
+  width: 152px;
+  height: 209px;
+  overflow: auto;
 }
 
 .contact-box{
@@ -277,3 +328,4 @@ body{
   
  width: 50px;
 }
+
