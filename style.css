@@ -242,7 +242,7 @@ display-project{
 .textProject{
   font-size: 16px;
   left: 12px;
-  top: 338px;
+  top: 315px;
   color: #BFFFFF;
   position: absolute;
   align-self: center;
@@ -267,6 +267,7 @@ display-project{
   width: 50px;
   position: absolute;
   left: 155px;
+  cursor: pointer;
 }
 .perfil-box{
   top: 30px;
@@ -352,3 +353,17 @@ display-project{
 }
 
 
+
+
+.setaAnimation {
+  animation: moveRight 1s linear infinite !important
+}
+
+@keyframes moveRight {
+  0% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(5px);
+  }
+}

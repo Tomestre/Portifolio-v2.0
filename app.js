@@ -270,6 +270,8 @@ function  criarSVGsComTextoDinamico(objetos) {
   return svgs;
 }
 
+
+
 //links-svg-contact
 function goTo (name){
   if(name ==='whatsapp'){
