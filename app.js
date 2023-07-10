@@ -338,6 +338,7 @@ function adicionarEventoCliqueNosSVGs() {
           gitLink.classList.remove('desactive');
 
           gitLink.addEventListener('click',()=> goLink(urlProject));
+          break
       
         
         }
