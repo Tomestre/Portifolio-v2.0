@@ -357,6 +357,5 @@ function adicionarEventoCliqueNosSVGs() {
 
 
 function goLink(link){
-  console.log(link)
   window.open(link, '_blank')}
 
