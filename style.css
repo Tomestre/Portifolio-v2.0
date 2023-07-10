@@ -230,12 +230,24 @@ body{
 
 .project-box{
   top: 30px;
-  left: 18px;
+  left: 102px;
   position: absolute;
   display: flex;
   flex-direction: column;
   height: 209px;
   overflow: auto;
+}
+display-project{
+  display: grid;
+}
+.textProject{
+  font-size: 16px;
+  left: 12px;
+  top: 304px;
+  color: #BFFFFF;
+  position: absolute;
+  align-self: center;
+  width: 351px;
 }
 
 .desactive{
@@ -245,7 +257,18 @@ body{
 .project-box svg:hover{
   background-color: rgba(224, 59, 59, 0.374);
 }
+.img-project{
+  top: 30px;
+  left: 38px;
+  position: absolute;
+  object-fit: cover;
+}
 
+.git-link{
+  width: 50px;
+  position: absolute;
+  left: 155px;
+}
 .perfil-box{
   top: 30px;
   left: 18px;
@@ -328,4 +351,5 @@ body{
   
  width: 50px;
 }
+
 

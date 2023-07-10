@@ -69,25 +69,32 @@ posicionarDivEmCimaDoSvg()
 
 
 
-//animar letras
+//animar letras display
+const text1 = document.querySelector('.typing-animation')
+const text2 = document.querySelector('.text2')
+const setas = document.querySelector('.setaTalk')
+
 function nextText(){
-  const text1 = document.querySelector('.typing-animation')
-  const text2 = document.querySelector('.text2')
-  const setas = document.querySelector('.setaTalk')
+  
 
  if(text1.style.display === "none" &
  text2.style.display === "none"){
 
   return
  } else if (text2.style.display === "block") {
-    text1.style.display = "none";
-    text2.style.display = "none";
-    setas.setAttribute('display','none')
+    hideText()
   } else {
     text2.style.display = "block";
     text1.style.display = "none";
   }
 
+}
+
+function hideText(){
+  text1.style.display = "none";
+  text2.style.display = "none";
+  setas.setAttribute('display','none')
+  
 }
 
 window.addEventListener("keypress", function(event){
@@ -104,9 +111,12 @@ const hoverMenu = document.querySelectorAll('.box-menu svg')
 const menuSVG = document.querySelectorAll('.menu-hover')
 const display = document.getElementById('display')
 const containerProjects = document.querySelector('.project-box');
+const textProject = document.querySelector('.textProject')
 const containerPerfil = document.querySelector('.perfil-box');
 const containerContact = document.querySelector('.contact-box')
 const containerTools =  document.querySelector('.tools-box')
+const gitLink = document.querySelector('.git-link')
+
 
 hoverMenu.forEach((menu,i)=>{
 menu.addEventListener('click', (e)=>{
@@ -116,7 +126,10 @@ if(menuSVG[i]===menuSVG[3]){
   containerTools.classList.remove('desactive')
   }
 if(menuSVG[i]===menuSVG[2]){
+
+textProject.classList.remove('desactive')
 containerProjects.classList.remove('desactive')
+
 }
 if(menuSVG[i]===menuSVG[1]){
   containerPerfil.classList.remove('desactive')
@@ -129,9 +142,14 @@ if(!display.classList.contains('display-active')){
   containerPerfil.classList.add('desactive')
   containerContact.classList.add('desactive')
   containerTools.classList.add('desactive')
+  textProject.classList.add('desactive')
+  gitLink.classList.add('desactive')
+  textProject.textContent = ''
 }
 
 })
+
+
 
 menu.addEventListener('mouseover', () => {
   menuSVG[i].classList.add('menu-hover-active')
@@ -165,7 +183,8 @@ function getApiGitHub() {
       data.map(item => {
         let project = {
           name:item.name,
-          descrição:item.fullname,
+          description:item.description,
+          url:item.html_url
         }
   
 
@@ -177,8 +196,6 @@ function getApiGitHub() {
 
       const projectsBox = criarSVGsComTextoDinamico(projects);
 
-// Limpa o conteúdo da div
-containerProjects.innerHTML = "";
 
 // Insere os SVGs na div
 projectsBox.forEach((svg) => {
@@ -186,6 +203,9 @@ projectsBox.forEach((svg) => {
   svgContainer.appendChild(svg);
   containerProjects.appendChild(svgContainer);
   });
+
+// Chamar a função para adicionar o evento de clique a todos os SVGs quando a página carregar.
+adicionarEventoCliqueNosSVGs();
 
     }).catch(e => console.log(e))
 }
@@ -273,3 +293,70 @@ videoPerfil.addEventListener('mouseout', ()=>{
   const imgPerfil = document.querySelector('.img-perfil');
   imgPerfil.style.opacity = 0
 })
+
+function adicionarEventoCliqueNosSVGs() {
+  // Passo 1: Obter a referência da div com a classe ".project-box".
+  const divProjectBox = document.querySelector('.project-box');
+
+  if (!divProjectBox) {
+    console.log("A div '.project-box' não foi encontrada.");
+    return;
+  }
+
+  // Passo 2: Encontrar todas as divs filhas que contêm elementos SVG dentro da div '.project-box'.
+  const divsFilhasSVG = divProjectBox.querySelectorAll('div svg');
+
+  if (divsFilhasSVG.length === 0) {
+    console.log("Não foram encontradas divs filhas com elementos SVG dentro da div '.project-box'.");
+    return;
+  }
+
+  let linkProject = ''
+
+  // Passo 3: Adicionar o evento de clique (click) a cada elemento SVG encontrado.
+  divsFilhasSVG.forEach((divFilhaSVG) => {
+
+    divFilhaSVG.addEventListener('click', function () {
+      // Passo 4: Acessar o conteúdo do SVG para obter o texto/links.
+      const textoSVG = divFilhaSVG.textContent;
+    
+      
+      
+      gitLink.classList.add('desactive')
+
+
+      for (let i = 0; i < projects.length; i++) {
+        if (textoSVG == projects[i].name) {
+          const urlProject = projects[i].url;
+      
+          hideText();
+      
+          textProject.textContent = projects[i].description;
+      
+          gitLink.classList.remove('desactive');
+
+          gitLink.addEventListener('click',()=> goLink(urlProject));
+      
+        
+        }
+      }
+      
+      
+      
+    });
+
+    divFilhaSVG.addEventListener('click',()=>{
+    const positionText = textProject.getBoundingClientRect();
+    gitLink.style.top = (positionText.bottom + 10) + 'px';})
+
+    
+   
+  });
+  
+}
+
+
+function goLink(link){
+  console.log(link)
+  window.open(link, '_blank')}
+
