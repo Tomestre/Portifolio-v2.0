@@ -313,8 +313,6 @@ function adicionarEventoCliqueNosSVGs() {
     return;
   }
 
-  let linkProject = ''
-
   // Passo 3: Adicionar o evento de clique (click) a cada elemento SVG encontrado.
   divsFilhasSVG.forEach((divFilhaSVG) => {
 
@@ -337,10 +335,13 @@ function adicionarEventoCliqueNosSVGs() {
       
           gitLink.classList.remove('desactive');
 
-          gitLink.addEventListener('click',()=> goLink(urlProject));
-          break
-      
-        
+          function linkCallback() {
+            goLink(urlProject);
+            gitLink.removeEventListener('click', linkCallback);
+          }
+
+          gitLink.addEventListener('click', linkCallback);
+          return;
         }
       }
       
@@ -350,7 +351,8 @@ function adicionarEventoCliqueNosSVGs() {
 
     divFilhaSVG.addEventListener('click',()=>{
     const positionText = textProject.getBoundingClientRect();
-    gitLink.style.top = (positionText.bottom + 10) + 'px';})
+    gitLink.style.top = (positionText.bottom + 10) + 'px';}
+    )
 
     
    
@@ -360,5 +362,8 @@ function adicionarEventoCliqueNosSVGs() {
 
 
 function goLink(link){
-  window.open(link, '_blank')}
+  console.log(link)
+  window.open(link, '_blank')
+  return
+  }
 
