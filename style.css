@@ -130,7 +130,7 @@ body{
   cursor: pointer;
 }
 
-#my-path , #seta1 , #seta2, .contact-border{
+.blue-light, .contact-border{
   stroke-width: 2px; /* Define a largura da borda */
   animation: change-stroke-color 4s infinite alternate;
 }
@@ -186,7 +186,7 @@ body{
 }
 
 .light-menu{
-  animation: change-stroke-menu-color 4s infinite alternate !important;
+  animation: change-stroke-menu-color 4s infinite alternate ;
 }
 
 
@@ -313,13 +313,13 @@ display-project{
 }
 .perfil-box h2{
   font-size: 16px;
-  left: 175px;
+  left: 156px;
   top: -16px;
   color: #BFFFFF;
   position: absolute;
   align-self: center;
   justify-self: center;
-  width: 152px;
+  width: 170px;
   height: 209px;
   overflow: auto;
 }

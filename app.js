@@ -45,9 +45,15 @@ const out1e = document.querySelector('#out1e')
 
   });
 
+  const everySVG = document.querySelectorAll('svg')
+
+  
+
   function handleClick(){
-    const out1 = document.querySelector('#out1e')
-  console.log(display);
+    everySVG.forEach((element)=> {
+      changeColorOnClick(element)})
+    
+  
   }
 
   function posicionarDivEmCimaDoSvg() {
@@ -67,7 +73,23 @@ posicionarDivEmCimaDoSvg()
   
  window.addEventListener('resize', posicionarDivEmCimaDoSvg)
 
+//animar centro do svg
+const svgExcluido = document.getElementById('pathE')
 
+function changeColorOnClick(element) {
+
+  function handleClick() {
+    if(element == label){
+      return
+    }
+    element.classList.toggle('blue-light')
+    element.classList.toggle('light-menu')
+    svgExcluido.setAttribute('stroke','black')
+    label.removeEventListener('click', handleClick);
+  }
+
+  label.addEventListener('click', handleClick);
+}
 
 //animar letras display
 const text1 = document.querySelector('.typing-animation')
@@ -362,8 +384,8 @@ function adicionarEventoCliqueNosSVGs() {
 
 
 function goLink(link){
-  console.log(link)
   window.open(link, '_blank')
   return
   }
+
 
